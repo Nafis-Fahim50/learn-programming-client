@@ -25,10 +25,9 @@ const Header = () => {
                         <Nav.Link><Link className='text-muted text-decoration-none' to='/faq'>FAQ</Link></Nav.Link>
                         <Nav.Link><Link className='text-muted text-decoration-none' to='/blog'>Blog</Link></Nav.Link>
                         <Nav.Link><Link className='text-muted text-decoration-none' to='/signup'>Signup</Link></Nav.Link>
-                        <Nav.Link><Link className='text-muted text-decoration-none' to='/login'>Logout</Link></Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
+                        <Nav.Link>More deets</Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
                             Dank memes
                         </Nav.Link>
