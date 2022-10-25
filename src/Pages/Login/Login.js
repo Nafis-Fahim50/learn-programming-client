@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import './Login.css'
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
@@ -79,7 +79,8 @@ const Login = () => {
             <h5 className='text-center text-success fw-blod'>Or</h5>
             <div>
                 <button onClick={handleGoogleSignIn} className='btn btn-danger login-btn'><FaGoogle></FaGoogle> Login in With Google</button>
-                <button onClick={handleGithubSignIn} className='btn btn-dark login-btn ms-lg-5'><FaGithub></FaGithub> Login in With GitHub</button>
+                <button onClick={handleGithubSignIn} className='btn btn-dark login-btn ms-lg-1'><FaGithub></FaGithub> Login in With GitHub</button>
+                <button className='btn btn-primary login-btn pe-4 ms-lg-1'><FaFacebook className='ms-2'></FaFacebook> Login  in  Facebook</button>
             </div>
 
         </div>

@@ -9,6 +9,7 @@ import Blog from './Pages/Blog/Blog';
 import Signup from './Pages/Signup/Signup';
 import Login from './Pages/Login/Login';
 import { Toaster } from 'react-hot-toast';
+import CourseDetails from './Pages/CourseDetails/CourseDetails';
 
 function App() {
   const router = createBrowserRouter([{
@@ -39,6 +40,11 @@ function App() {
       {
         path:'/login',
         element:<Login></Login>
+      },
+      {
+        path:'/course/:id',
+        element:<CourseDetails></CourseDetails>,
+        loader:({params})=>fetch(`https://learn-programming-server-side.vercel.app/courses/${params.id}`)
       }
     ]
   }])
