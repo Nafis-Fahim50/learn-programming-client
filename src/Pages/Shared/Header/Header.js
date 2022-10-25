@@ -10,7 +10,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import image from '../../../image/image.png'
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user,logout } = useContext(AuthContext);
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -34,10 +34,10 @@ const Header = () => {
                     <Nav>
                         <Nav.Link>
                             {
-                                user?.displayName ?
+                                user?.uid ?
                                     <>
                                         <span className='me-3'>{user?.displayName}</span>
-                                        <Button><FaSignOutAlt></FaSignOutAlt> Logout</Button>
+                                        <Button onClick={logout}><FaSignOutAlt></FaSignOutAlt> Logout</Button>
                                     </>
                                     :
                                     <></>
