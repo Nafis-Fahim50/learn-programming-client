@@ -15,7 +15,7 @@ const Course = ({ course }) => {
                         {title}
                     </Card.Text>
                     <Button variant="success">
-                        <Link className='text-decoration-none text-light' to={`/course/${course.id}`}>Start Tutorial</Link>
+                        <Link className='text-decoration-none fw-bold text-light' to={`/course/${course.id}`}>Start Tutorial</Link>
                         </Button>
                 </Card.Body>
             </Card>

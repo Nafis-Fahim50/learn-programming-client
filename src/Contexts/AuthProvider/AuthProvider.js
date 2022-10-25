@@ -50,7 +50,9 @@ const AuthProvider = ({children}) => {
         signIn,
         providerLogin,
         logout,
-        userProfileUpdate
+        userProfileUpdate,
+        loading,
+        setLoading
     }
 
     return (

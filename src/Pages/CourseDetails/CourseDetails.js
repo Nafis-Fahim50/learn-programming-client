@@ -1,23 +1,32 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { FaDownload } from 'react-icons/fa';
 
 
 const CourseDetails = () => {
     const details = useLoaderData();
-    const { img_url, discription, title } = details;
+    const { img_url, discription, title, name } = details;
     return (
-        <Card className='my-5'>
-            <Card.Img variant="top" src={img_url} />
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Text>
-                    {discription}
-                </Card.Text>
-                <Button variant="primary">Checkout</Button>
-            </Card.Body>
-        </Card>
+        <div>
+            <div className='d-flex justify-content-between mt-3'>
+                <h3>{name}</h3>
+                <FaDownload></FaDownload>
+            </div>
+            <Card>
+                <Card.Img variant="top" src={img_url} />
+                <Card.Body>
+                    <Card.Title>{title}</Card.Title>
+                    <Card.Text>
+                        {discription}
+                    </Card.Text>
+                    <Button className='fw-bold' variant="success">
+                        <Link className='text-decoration-none text-light' to='/checkout'>Get Premium Access</Link>
+                    </Button>
+                </Card.Body>
+            </Card>
+        </div>
     );
 };
 

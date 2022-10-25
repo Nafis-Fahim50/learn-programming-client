@@ -10,6 +10,8 @@ import Signup from './Pages/Signup/Signup';
 import Login from './Pages/Login/Login';
 import { Toaster } from 'react-hot-toast';
 import CourseDetails from './Pages/CourseDetails/CourseDetails';
+import CheckOut from './Pages/CheckOut/CheckOut';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
   const router = createBrowserRouter([{
@@ -45,6 +47,10 @@ function App() {
         path:'/course/:id',
         element:<CourseDetails></CourseDetails>,
         loader:({params})=>fetch(`https://learn-programming-server-side.vercel.app/courses/${params.id}`)
+      },
+      {
+        path:'/checkout',
+        element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>
       }
     ]
   }])

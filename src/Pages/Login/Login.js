@@ -3,22 +3,26 @@ import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import './Login.css'
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const { signIn,providerLogin } = useContext(AuthContext);
+    const { signIn,providerLogin,setLoading } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleGoogleSignIn = () =>{
         providerLogin(googleProvider)
         .then(result =>{
             const user = result.user;
             console.log(user);
+            navigate(from,{replace:true});
         })
         .catch(error =>{
             console.error('Error',error)
@@ -30,6 +34,7 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user)
+            navigate(from,{replace:true});
         })
         .catch(error =>{
             console.error('Error', error);
@@ -49,10 +54,14 @@ const Login = () => {
                 console.log(user)
                 toast.success('Successfully Login')
                 form.reset();
+                navigate(from,{replace:true});
             })
             .catch(e => {
                 console.error('Error:', e);
                 toast.error(e.message);
+            })
+            .finally(()=>{
+                setLoading(false)
             })
     }
     return (
