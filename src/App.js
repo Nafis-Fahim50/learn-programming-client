@@ -12,6 +12,7 @@ import { Toaster } from 'react-hot-toast';
 import CourseDetails from './Pages/CourseDetails/CourseDetails';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import ErrorRoute from './ErrorRoute/ErrorRoute';
 
 function App() {
   const router = createBrowserRouter([{
@@ -51,6 +52,10 @@ function App() {
       {
         path:'/checkout',
         element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+      },
+      {
+        path: '*',
+        element: <ErrorRoute></ErrorRoute>
       }
     ]
   }])
