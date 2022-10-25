@@ -10,7 +10,7 @@ const Signup = () => {
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name='name' placeholder="Enter email" required />
+                    <Form.Control type="text" name='name' placeholder="Name" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPhoto">
@@ -20,7 +20,7 @@ const Signup = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email" required />
+                    <Form.Control type="email" name='email' placeholder="Email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
