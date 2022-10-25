@@ -1,12 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Signup = () => {
     const {createUser} = useContext(AuthContext);
+    const [error, setError] = useState('')
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -21,10 +24,13 @@ const Signup = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
+            toast.success('Successfully Register');
             form.reset()
         })
-        .catch(error =>{
-            console.error('Error',error);
+        .catch(e =>{
+            console.error('Error',e);
+            setError(e.message);
+            toast.error(error);
         })
     }
     return (
@@ -55,7 +61,6 @@ const Signup = () => {
                     Sign Up
                 </Button>
                 <p className='text-center mt-3'><Link className='text-decoration-none fw-bold' to='/login' >Already have an account?</Link></p>
-                
             </Form>
         </div>
     );
