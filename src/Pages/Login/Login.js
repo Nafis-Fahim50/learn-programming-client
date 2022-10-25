@@ -7,11 +7,12 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import './Login.css'
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const { signIn,providerLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () =>{
         providerLogin(googleProvider)
@@ -21,6 +22,17 @@ const Login = () => {
         })
         .catch(error =>{
             console.error('Error',error)
+        })
+    }
+
+    const handleGithubSignIn = () =>{
+        providerLogin(gitHubProvider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error =>{
+            console.error('Error', error);
         })
     }
 
@@ -44,7 +56,7 @@ const Login = () => {
             })
     }
     return (
-        <div className='mt-5 shadow-sm mb-5 bg-body rounded p-5 lg-width'>
+        <div className='mt-4 shadow-sm mb-5 bg-body rounded p-5 lg-width'>
             <h3 className='text-primary fw-bold mb-3'>Please Login Here</h3>
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -67,7 +79,7 @@ const Login = () => {
             <h5 className='text-center text-success fw-blod'>Or</h5>
             <div>
                 <button onClick={handleGoogleSignIn} className='btn btn-danger'><FaGoogle></FaGoogle> Login in With Google</button>
-                <button className='btn btn-dark ms-5'><FaGithub></FaGithub> Login in With GitHub</button>
+                <button onClick={handleGithubSignIn} className='btn btn-dark ms-5'><FaGithub></FaGithub> Login in With GitHub</button>
             </div>
 
         </div>

@@ -32,12 +32,12 @@ const Signup = () => {
         })
     }
     return (
-        <div className='mt-5 shadow mb-5 bg-body rounded p-5 lg-width'>
+        <div className='mt-4 shadow mb-5 bg-body rounded pt-5 pb-3 px-5 lg-width'>
             <h3 className='text-primary fw-bold mb-3'>Sign Up</h3>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name='name' placeholder="Name" required />
+                    <Form.Control type="text" name='name' placeholder="Full Name" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPhoto">

@@ -35,7 +35,12 @@ const Header = () => {
                                 <Image style={{ height: '50px' }}
                                     roundedCircle
                                     src={user?.photoURL}
-                                    title={user?.displayName}>
+                                    title={
+                                        user?.displayName?
+                                        user.displayName
+                                        :
+                                        'Name not found'
+                                        }>
                                 </Image>
                                 :
                                 <FaUser className='mt-1'></FaUser>
@@ -49,8 +54,8 @@ const Header = () => {
                                     </>
                                     :
                                     <>
-                                        <Link className='text-decoration-none text-warning me-2 ms-2' to='/signup'>Signup</Link>
-                                        <Link className='text-decoration-none text-success me-2' to='/login'>Login</Link>
+                                        <Link className='text-decoration-none text-warning fw-bold me-2 ms-2' to='/signup'>Signup</Link>
+                                        <Link className='text-decoration-none text-success fw-bold me-2' to='/login'>Login</Link>
                                     </>
                             }
                         </>
