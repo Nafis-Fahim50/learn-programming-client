@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Signup = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser,userProfileUpdate} = useContext(AuthContext);
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -24,12 +24,25 @@ const Signup = () => {
             const user = result.user;
             console.log(user);
             toast.success('Successfully Register');
-            form.reset()
+            form.reset();
+            handleUpdateUser(name,photoURL);
         })
         .catch(e =>{
             console.error('Error',e);
             toast.error(e.message);
         })
+    }
+
+    const handleUpdateUser = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        userProfileUpdate(profile)
+            .then(() => { })
+            .catch(error => {
+                console.error('error', error);
+            })
     }
     return (
         <div className='mt-4 shadow mb-5 bg-body rounded pt-5 pb-3 px-5 lg-width'>
