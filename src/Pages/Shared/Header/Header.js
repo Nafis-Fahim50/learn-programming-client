@@ -12,7 +12,7 @@ import image from '../../../image/image.png'
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="success" expand="lg">
             <Container>
                 <img
                     src={image}
@@ -21,13 +21,13 @@ const Header = () => {
                     className="d-inline-block align-top me-3"
                     alt="React Bootstrap logo"
                 />
-                <Navbar.Brand><Link className='text-decoration-none' to='/'>Learn Programming</Link></Navbar.Brand>
+                <Navbar.Brand><Link className='text-decoration-none text-light fw-bold' to='/'>Learn Programming</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link className=' mt-1 text-muted text-decoration-none' to='/courses'>Courses</Link>
-                        <Link className=' mt-1 ms-2 text-muted text-decoration-none' to='/faq'>FAQ</Link>
-                        <Link className=' mt-1 ms-2 text-muted text-decoration-none' to='/blog'>Blog</Link>
+                        <Link className=' mt-1 text-light text-decoration-none' to='/courses'>Courses</Link>
+                        <Link className=' mt-1 ms-2 text-light text-decoration-none' to='/faq'>FAQ</Link>
+                        <Link className=' mt-1 ms-2 text-light text-decoration-none' to='/blog'>Blog</Link>
                     </Nav>
                     <Nav>
                         {
@@ -56,7 +56,7 @@ const Header = () => {
                                     :
                                     <>
                                         <Link className='text-decoration-none text-warning fw-bold me-2 ms-2' to='/signup'>Signup</Link>
-                                        <Link className='text-decoration-none text-success fw-bold me-2' to='/login'>Login</Link>
+                                        <Link className='text-decoration-none text-info fw-bold me-2' to='/login'>Login</Link>
                                     </>
                             }
                         </>
