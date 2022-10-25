@@ -1,9 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Signup = () => {
+    const {createUser} = useContext(AuthContext);
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -12,8 +15,17 @@ const Signup = () => {
         const password = form.password.value;
         const name = form.name.value;
         const photoURL = form.photoURL.value;
-
         console.log(email,password,name,photoURL);
+
+        createUser(email,password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            form.reset()
+        })
+        .catch(error =>{
+            console.error('Error',error);
+        })
     }
     return (
         <div className='mt-5 shadow mb-5 bg-body rounded p-5 lg-width'>
@@ -25,7 +37,7 @@ const Signup = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPhoto">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>PhotoURL</Form.Label>
                     <Form.Control type="text" name='photoURL' placeholder="PhotoURL" required />
                 </Form.Group>
 
