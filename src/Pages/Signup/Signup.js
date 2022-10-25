@@ -9,7 +9,6 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Signup = () => {
     const {createUser} = useContext(AuthContext);
-    const [error, setError] = useState('')
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -29,8 +28,7 @@ const Signup = () => {
         })
         .catch(e =>{
             console.error('Error',e);
-            setError(e.message);
-            toast.error(error);
+            toast.error(e.message);
         })
     }
     return (
