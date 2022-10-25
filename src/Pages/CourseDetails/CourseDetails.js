@@ -3,6 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaDownload } from 'react-icons/fa';
+import './CourseDetails.css'
 
 
 const CourseDetails = () => {
@@ -12,7 +13,7 @@ const CourseDetails = () => {
         <div>
             <div className='d-flex justify-content-between mt-3'>
                 <h3>{name}</h3>
-                <FaDownload></FaDownload>
+                <FaDownload className='save-icon'></FaDownload>
             </div>
             <Card>
                 <Card.Img variant="top" src={img_url} />
