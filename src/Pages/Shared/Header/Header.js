@@ -1,11 +1,16 @@
 import React from 'react';
+import { useContext } from 'react';
+import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { FaSignOutAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import image from '../../../image/image.png'
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -27,7 +32,17 @@ const Header = () => {
                         <Nav.Link><Link className='text-muted text-decoration-none' to='/login'>Login</Link></Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link>More deets</Nav.Link>
+                        <Nav.Link>
+                            {
+                                user?.displayName ?
+                                    <>
+                                        <span className='me-3'>{user?.displayName}</span>
+                                        <Button><FaSignOutAlt></FaSignOutAlt> Logout</Button>
+                                    </>
+                                    :
+                                    <></>
+                            }
+                        </Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
                             Dank memes
                         </Nav.Link>
