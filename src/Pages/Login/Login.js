@@ -78,8 +78,8 @@ const Login = () => {
             <hr></hr>
             <h5 className='text-center text-success fw-blod'>Or</h5>
             <div>
-                <button onClick={handleGoogleSignIn} className='btn btn-danger'><FaGoogle></FaGoogle> Login in With Google</button>
-                <button onClick={handleGithubSignIn} className='btn btn-dark ms-5'><FaGithub></FaGithub> Login in With GitHub</button>
+                <button onClick={handleGoogleSignIn} className='btn btn-danger login-btn'><FaGoogle></FaGoogle> Login in With Google</button>
+                <button onClick={handleGithubSignIn} className='btn btn-dark login-btn ms-lg-5'><FaGithub></FaGithub> Login in With GitHub</button>
             </div>
 
         </div>

@@ -32,7 +32,8 @@ const Header = () => {
                     <Nav>
                         {
                             user?.photoURL ?
-                                <Image style={{ height: '50px' }}
+                                <Image className='user-img-width'
+                                style={{ height: '50px' }}
                                     roundedCircle
                                     src={user?.photoURL}
                                     title={
