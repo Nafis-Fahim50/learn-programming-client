@@ -1,10 +1,9 @@
 import React from 'react';
 
 const RightSideNav = () => {
-
     return (
         <div>
-           
+          
         </div>
     );
 };

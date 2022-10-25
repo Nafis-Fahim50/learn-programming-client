@@ -1,3 +1,9 @@
+.tutorial{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+
 @media only screen and (min-width: 992px) {
     .lg-width{
         width: 75%;
