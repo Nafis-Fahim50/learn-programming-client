@@ -34,7 +34,8 @@ const Header = () => {
                             user?.photoURL ?
                                 <Image style={{ height: '50px' }}
                                     roundedCircle
-                                    src={user?.photoURL}>
+                                    src={user?.photoURL}
+                                    title={user?.displayName}>
                                 </Image>
                                 :
                                 <FaUser className='mt-1'></FaUser>
@@ -44,8 +45,7 @@ const Header = () => {
                             {
                                 user?.uid ?
                                     <>
-                                        <span className='mx-2 mt-2 fw-bold'>{user?.displayName}</span>
-                                        <Button onClick={logout}><FaSignOutAlt></FaSignOutAlt> Logout</Button>
+                                        <Button className='ms-3' onClick={logout}><FaSignOutAlt></FaSignOutAlt> Logout</Button>
                                     </>
                                     :
                                     <>

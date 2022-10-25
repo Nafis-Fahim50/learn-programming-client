@@ -5,29 +5,43 @@ import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import './Login.css'
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
-    
-    const handleLogin = event =>{
+    const { signIn,providerLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () =>{
+        providerLogin(googleProvider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error =>{
+            console.error('Error',error)
+        })
+    }
+
+    const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password);
+        console.log(email, password);
 
-        signIn(email,password)
-        .then(result =>{
-            const user = result.user;
-            console.log(user)
-            toast.success('Successfully Login')
-            form.reset();
-        })
-        .catch(e =>{
-            console.error('Error:',e);
-            toast.error(e.message);
-        })
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                toast.success('Successfully Login')
+                form.reset();
+            })
+            .catch(e => {
+                console.error('Error:', e);
+                toast.error(e.message);
+            })
     }
     return (
         <div className='mt-5 shadow-sm mb-5 bg-body rounded p-5 lg-width'>
@@ -47,9 +61,15 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
-            <p className='text-center text-primary mt-3'><Link className='text-decoration-none'>Forgotten Password?</Link></p>
+            <p className='text-center text-primary'><Link className='text-decoration-none'>Forgotten Password?</Link></p>
+            <button className='btn btn-success py-2 w-100 fw-bold'><Link className='text-decoration-none text-white' to='/signup'>Create New Account</Link></button>
             <hr></hr>
-            <button className='btn btn-success py-2 fw-bold'><Link className='text-decoration-none text-white' to='/signup'>Create New Account</Link></button>
+            <h5 className='text-center text-success fw-blod'>Or</h5>
+            <div>
+                <button onClick={handleGoogleSignIn} className='btn btn-danger'><FaGoogle></FaGoogle> Login in With Google</button>
+                <button className='btn btn-dark ms-5'><FaGithub></FaGithub> Login in With GitHub</button>
+            </div>
+
         </div>
     );
 };
