@@ -7,8 +7,7 @@ const Courses = () => {
     // console.log(courses);
     return (
         <div className='mb-5'>
-            <h1>Total Courses: {courses.length}</h1>
-            <div className='tutorial'>
+            <div className='tutorial mt-5'>
                 {
                     courses.map(course => <Course
                         key={course.id}
