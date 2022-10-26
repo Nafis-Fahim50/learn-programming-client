@@ -1,20 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaSignOutAlt, FaToggleOff, FaToggleOn, FaUser } from 'react-icons/fa';
+import toast from 'react-hot-toast';
+import { FaSignOutAlt, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import image from '../../../image/image.png'
+import './Header.css'
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
+    const [theme, setTheme] = useState('light');
+    
+    const toggleTheme = () =>{
+        if(theme === 'light'){
+            setTheme('dark');
+            toast.success('Dark Mood')
+        }
+        else{
+            setTheme('light');
+            toast.success('Light Mood')
+        }
+    }
+
+    useEffect(() => {
+        document.body.className = theme;
+      }, [theme]);
 
     return (
-        <Navbar bg="success" expand="lg">
+        <Navbar className={`${theme}`} bg="success" expand="lg">
             <Container>
                 <img
                     src={image}
@@ -27,9 +45,10 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link className=' mt-1 text-light text-decoration-none' to='/courses'>Courses</Link>
-                        <Link className=' mt-1 ms-3 text-light text-decoration-none' to='/faq'>FAQ</Link>
-                        <Link className=' mt-1 ms-3 text-light text-decoration-none' to='/blog'>Blog</Link>
+                        <Link className=' mt-2 text-light text-decoration-none' to='/courses'>Courses</Link>
+                        <Link className=' mt-2 ms-3 text-light text-decoration-none' to='/faq'>FAQ</Link>
+                        <Link className=' mt-2 ms-3 text-light text-decoration-none' to='/blog'>Blog</Link>
+                        <button onClick={toggleTheme} className='btn btn-danger ms-3'>Theme</button>
                     </Nav>
                     <Nav>
                         {
@@ -58,7 +77,7 @@ const Header = () => {
                                     :
                                     <>
                                         <button className='btn btn-warning ms-2'><Link className='text-decoration-none text-light' to='/signup'>Signup</Link></button>
-                                        <button className='btn btn-primary ms-3'><Link className='text-decoration-none text-light' to='/login'>Login</Link></button>
+                                        <button className='btn btn-primary ms-3'><Link className='text-decoration-none text-light px-1' to='/login'>Login</Link></button>
                                     </>
                             }
                         </>
