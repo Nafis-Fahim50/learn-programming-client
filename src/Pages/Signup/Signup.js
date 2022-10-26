@@ -3,11 +3,12 @@ import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Signup = () => {
     const {createUser,userProfileUpdate} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -24,6 +25,7 @@ const Signup = () => {
             console.log(user);
             toast.success('Successfully Register');
             form.reset();
+            navigate('/login');
             handleUpdateUser(name,photoURL);
         })
         .catch(e =>{

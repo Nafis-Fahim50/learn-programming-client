@@ -1,16 +1,18 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaSignOutAlt, FaUser } from 'react-icons/fa';
+import { FaSignOutAlt, FaToggleOff, FaToggleOn, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import image from '../../../image/image.png'
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
+
     return (
         <Navbar bg="success" expand="lg">
             <Container>
@@ -26,8 +28,8 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Link className=' mt-1 text-light text-decoration-none' to='/courses'>Courses</Link>
-                        <Link className=' mt-1 ms-2 text-light text-decoration-none' to='/faq'>FAQ</Link>
-                        <Link className=' mt-1 ms-2 text-light text-decoration-none' to='/blog'>Blog</Link>
+                        <Link className=' mt-1 ms-3 text-light text-decoration-none' to='/faq'>FAQ</Link>
+                        <Link className=' mt-1 ms-3 text-light text-decoration-none' to='/blog'>Blog</Link>
                     </Nav>
                     <Nav>
                         {
@@ -44,7 +46,7 @@ const Header = () => {
                                         }>
                                 </Image>
                                 :
-                                <FaUser className='mt-1'></FaUser>
+                                <FaUser className='mt-1 save-icon'></FaUser>
                         }
 
                         <>
@@ -55,8 +57,8 @@ const Header = () => {
                                     </>
                                     :
                                     <>
-                                        <Link className='text-decoration-none text-warning fw-bold me-2 ms-2' to='/signup'>Signup</Link>
-                                        <Link className='text-decoration-none text-info fw-bold me-2' to='/login'>Login</Link>
+                                        <button className='btn btn-warning ms-2'><Link className='text-decoration-none text-light' to='/signup'>Signup</Link></button>
+                                        <button className='btn btn-primary ms-3'><Link className='text-decoration-none text-light' to='/login'>Login</Link></button>
                                     </>
                             }
                         </>

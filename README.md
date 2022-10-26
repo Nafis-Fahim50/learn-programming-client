@@ -1,3 +1,24 @@
+# Project Overview
+
+Website Name:Learn Programming
+Live Website Link: 
+
+# Website features and functionality
+
+* Learn different kind of programming language.
+* Get premium access
+* User Signup and sign in system.
+* Download course details as a pdf file.
+* Dark and light mode.
+
+# Used Technologies
+
+* React (JavaScript Library)
+* Firebase authentication system
+* React Bootstrap CSS Framework
+* React Icon, Hot Toast, React-router etc.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
