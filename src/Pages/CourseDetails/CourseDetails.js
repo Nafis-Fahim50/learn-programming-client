@@ -8,7 +8,7 @@ import './CourseDetails.css'
 
 const CourseDetails = () => {
     const details = useLoaderData();
-    const { img_url, discription, title, name } = details;
+    const { img_url, discription, title, name,id } = details;
     return (
         <div>
             <div className='d-flex justify-content-between mt-3'>
@@ -23,7 +23,7 @@ const CourseDetails = () => {
                         {discription}
                     </Card.Text>
                     <Button className='fw-bold' variant="success">
-                        <Link className='text-decoration-none text-light' to='/checkout'>Get Premium Access</Link>
+                        <Link className='text-decoration-none text-light' to={`/checkout/${id}`}>Get Premium Access</Link>
                     </Button>
                 </Card.Body>
             </Card>

@@ -50,8 +50,9 @@ function App() {
         loader:({params})=>fetch(`https://learn-programming-server-side.vercel.app/courses/${params.id}`)
       },
       {
-        path:'/checkout',
-        element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+        path:'/checkout/:id',
+        element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+        loader:({params})=>fetch(`https://learn-programming-server-side.vercel.app/courses/${params.id}`)
       },
       {
         path: '*',
