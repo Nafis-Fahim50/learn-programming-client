@@ -14,7 +14,7 @@ const CheckOut = () => {
     }
     return (
         <div>
-            <div className='mt-5 shadow-lg w-50 p-5'>
+            <div className='mt-5 shadow-lg w-lg-50 p-5'>
                 <h4 className='text-success'>Customer Name: <span className='text-primary'>{user?.displayName}</span></h4>
                 <h5 className='mt-3'>Course ID: {id}</h5>
                 <h5 className='mt-3'>Course Name: {name}</h5>
