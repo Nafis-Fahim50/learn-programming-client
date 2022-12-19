@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../Hooks/UseTitile/UseTitle';
 import './Home.css'
 
 
 const Home = () => {
-
+    useTitle('home')
     return (
         <div className='my-5 text-center rounded shadow py-5 home-container'>
             <h1 className='text-success fw-bold mb-4 title' >Learn Programming</h1>

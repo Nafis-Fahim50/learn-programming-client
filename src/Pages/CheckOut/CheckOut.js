@@ -3,12 +3,13 @@ import toast from 'react-hot-toast';
 import { FaCommentDollar,FaCommentsDollar,FaDollarSign } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/UseTitile/UseTitle';
 
 const CheckOut = () => {
     const tutorial = useLoaderData();
     const { name, id, price } = tutorial;
     const { user } = useContext(AuthContext);
-
+    useTitle('Checkout')
     const handleButton = () =>{
         toast.success('Successfully completed payment')
     }

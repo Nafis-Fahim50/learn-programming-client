@@ -5,12 +5,14 @@ import Card from 'react-bootstrap/Card';
 import { FaDownload } from 'react-icons/fa';
 import './CourseDetails.css'
 import Pdf from "react-to-pdf";
+import useTitle from '../../Hooks/UseTitile/UseTitle';
 
 const ref = React.createRef();
 
 const CourseDetails = () => {
     const details = useLoaderData();
     const { img_url, discription, title, name, id } = details;
+    useTitle('Details')
 
     return (
         <div>

@@ -5,10 +5,12 @@ import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/UseTitile/UseTitle';
 
 const Signup = () => {
     const {createUser,userProfileUpdate} = useContext(AuthContext);
     const navigate = useNavigate();
+    useTitle('Signup')
 
     const handleSubmit = event =>{
         event.preventDefault();

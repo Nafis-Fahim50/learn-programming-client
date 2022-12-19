@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../Hooks/UseTitile/UseTitle';
 
 const Blog = () => {
+    useTitle('Blog')
     return (
         <div className='mt-3 shadow-sm p-5'>
             <h4 className='text-success'>1. What is cors?</h4>

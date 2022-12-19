@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hooks/UseTitile/UseTitle';
 import Course from '../Course/Course';
 
 const Courses = () => {
     const courses = useLoaderData();
+    useTitle('Courses')
     // console.log(courses);
     return (
         <div className='mb-5'>

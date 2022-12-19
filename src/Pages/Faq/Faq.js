@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../Hooks/UseTitile/UseTitle';
 
 const Faq = () => {
+    useTitle('FAQ')
     return (
         <div className='mt-5'>
             <h1 className='text-success'>Frequently asked question</h1>

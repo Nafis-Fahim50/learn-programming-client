@@ -8,8 +8,10 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import './Login.css'
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../Hooks/UseTitile/UseTitle';
 
 const Login = () => {
+    useTitle('Login')
     const { signIn,providerLogin,setLoading } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
