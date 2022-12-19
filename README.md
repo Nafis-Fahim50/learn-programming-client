@@ -6,11 +6,11 @@
 
 # Website features and functionality
 
-* Learn different kind of programming language.
-* Get premium access
-* User Signup and Signin system using firebase.
-* Download course details as a pdf file.
-* Dark and light mode.
+* Clinet will learn different kind of programming language.
+* Register user get premium access
+* Implement Signup and Signin system using firebase.
+* User will download course details as a pdf file.
+* User can able to purchased any courses. 
 
 # Used Technologies
 
