@@ -22,6 +22,7 @@ function App() {
       {
         path:'/',
         element:<Home></Home>,
+        loader: ()=> fetch('https://learn-programming-server-side.vercel.app/courses')
       },
       {
         path:'/courses',

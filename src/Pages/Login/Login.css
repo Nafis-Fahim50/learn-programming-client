@@ -1,7 +1,7 @@
 .tutorial{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 10px;
+    gap: 20px;
 }
 .text-justify{
     text-align: justify;

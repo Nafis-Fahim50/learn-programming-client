@@ -12,7 +12,7 @@ const Course = ({ course }) => {
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
-                       <p> {title.slice(0,75)}...</p>
+                       <p> {title.slice(0,80)}...</p>
                     </Card.Text>
                     <Button variant="success">
                         <Link className='text-decoration-none fw-bold text-light' to={`/course/${course.id}`}>Start Tutorial</Link>
