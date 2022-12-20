@@ -7,12 +7,12 @@ const Course = ({ course }) => {
     const { name, title, img } = course;
     return (
         <div>
-            <Card  className='h-100'>
-                <Card.Img className='h-50 w-50' variant="top" src={img} />
+            <Card className='h-100'>
+                <Card.Img className='h-75 w-full' variant="top" src={img} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
-                        {title}
+                       <p> {title.slice(0,75)}...</p>
                     </Card.Text>
                     <Button variant="success">
                         <Link className='text-decoration-none fw-bold text-light' to={`/course/${course.id}`}>Start Tutorial</Link>

@@ -16,11 +16,11 @@ const RightSideNav = () => {
     return (
         <div className='mt-3'>
             <h4 className='text-success mb-3'>Quick Links</h4>
-            <div>
+            <div className='my-2'>
                 {
                     courses.map(course => <p
                         key={course.id}>
-                        <Link className='text-decoration-none text-dark fw-bold' to={`/course/${course.id}`}>Learn {course.name}</Link>
+                        <Link className='text-decoration-none text-dark fw-bold p-2 border border-1 rounded mb-5 hover:bg-success' to={`/course/${course.id}`}>Learn {course.name}</Link>
                     </p>)
                 }
             </div>
