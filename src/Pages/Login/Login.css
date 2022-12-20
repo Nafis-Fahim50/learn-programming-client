@@ -6,6 +6,11 @@
 .text-justify{
     text-align: justify;
 }
+.login-btn{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
 @media only screen and (min-width: 992px) {
     .lg-width{
         width: 75%;
@@ -13,8 +18,11 @@
   } 
 @media only screen and (max-width: 768px) {
     .login-btn{
-        margin-top: 20px;
-        margin-left: 40px;
+        display: block;
+        margin-left: 50px;
+    }
+    .gap-btn{
+        margin-top: 15px ;
     }
     .user-img-width{
         width: 50px;
