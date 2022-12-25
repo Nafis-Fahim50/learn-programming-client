@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import './Login.css'
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import useTitle from '../../Hooks/UseTitile/UseTitle';
